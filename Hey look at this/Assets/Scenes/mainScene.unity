@@ -168,52 +168,6 @@ Transform:
   m_Father: {fileID: 995864324}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &380261581
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.01953125
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4967196254088052, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1196786513583304, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-      propertyPath: m_Name
-      value: Mate
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &610062404
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1146b4c16f58d17468a0d0a95eda2ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MatePrefab: {fileID: 1901892647220532, guid: 38ea66da9d63b0349bdb5aa15f0dc7f1, type: 2}
+  MatePrefab: {fileID: 1951881896653088, guid: 48bf60041f014da40acdc58587f623c9, type: 2}
   StartSpawnTime: 1
   SpawnRateTime: 10
 --- !u!4 &703234249
@@ -521,7 +475,7 @@ Transform:
   - {fileID: 615263753}
   - {fileID: 610062405}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1270883524
 GameObject:

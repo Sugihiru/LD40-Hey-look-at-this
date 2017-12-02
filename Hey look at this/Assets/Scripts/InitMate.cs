@@ -10,7 +10,7 @@ public class InitMate : MonoBehaviour
 	void Start ()
     {
         // Say hello
-        ExecuteAfterTime(TimeBeforeMovingToComputer);
+        StartCoroutine(ExecuteAfterTime(TimeBeforeMovingToComputer));
 	}
 	
 	// Update is called once per frame
@@ -22,14 +22,16 @@ public class InitMate : MonoBehaviour
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-
         MoveToComputer();
     }
 
     private void MoveToComputer()
     {
-        GameObject seat = GameObject.Find("Seats/Seat");
+        Debug.Log(GameObject.FindGameObjectsWithTag("Mate").Length);
+
+        GameObject seat = GameObject.Find("Seats/Seat1");
         if (!seat)
             Debug.Log("Seat not found");
+        transform.position = Vector3.MoveTowards(transform.position, GameObject.Find("Seats/Seat1").transform.position, 100);
     }
 }
