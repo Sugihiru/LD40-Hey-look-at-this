@@ -9,6 +9,7 @@ public class InitMate : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        // Say hello
         ExecuteAfterTime(TimeBeforeMovingToComputer);
 	}
 	
@@ -27,6 +28,8 @@ public class InitMate : MonoBehaviour
 
     private void MoveToComputer()
     {
-
+        GameObject seat = GameObject.Find("Seats/Seat");
+        if (!seat)
+            Debug.Log("Seat not found");
     }
 }
