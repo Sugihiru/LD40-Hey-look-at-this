@@ -33,8 +33,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-*/Library/metadata/*
 */Library/ScriptAssemblies/
 */obj/
 */Temp
-*.meta
