@@ -12,6 +12,8 @@ public class InitMate : MonoBehaviour
 	void Start ()
     {
         // Say hello
+        GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + GameObject.FindGameObjectsWithTag("Mate").Length);
+        button.SetActive(true);
         StartCoroutine(ExecuteAfterTime(TimeBeforeMovingToComputer));
 	}
 	

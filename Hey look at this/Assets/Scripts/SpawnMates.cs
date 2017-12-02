@@ -5,6 +5,7 @@ public class SpawnMates : MonoBehaviour
     public GameObject MatePrefab;
     public int StartSpawnTime;
     public int SpawnRateTime;
+    public int MaxNbMates;
 
 	// Use this for initialization
 	void Start()
@@ -14,6 +15,11 @@ public class SpawnMates : MonoBehaviour
 
     void SpawnMate()
     {
+        if (GameObject.FindGameObjectsWithTag("Mate").Length == MaxNbMates)
+        {
+            CancelInvoke("SpawnMate");
+            return;
+        }
         Instantiate(MatePrefab, transform.position, transform.rotation);
     }
 }

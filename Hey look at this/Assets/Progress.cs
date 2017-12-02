@@ -7,7 +7,7 @@ public class Progress : MonoBehaviour
 {
     private float Value = 0;
     public float MaxValue;
-    public float PtsWonByTime;
+    public float PtsWonPerSecPerPerson;
     private Image Img;
 
     void Start()
@@ -18,10 +18,9 @@ public class Progress : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKey("space") && Value < MaxValue)
+        if (Value < MaxValue)
         {
-            Value += PtsWonByTime;
-            Debug.Log(Value / MaxValue);
+            Value += (PtsWonPerSecPerPerson * GameObject.FindGameObjectsWithTag("Mate").Length) * Time.deltaTime;
             Img.fillAmount = Value / MaxValue;
         }
     }
