@@ -1,0 +1,40 @@
+// mates quotes
+	// bullshit			[5]
+	- "Check out my vacation pictures !"
+	- "Look ! My cat is so cute, isn't it ?"
+	- "This video is so funny !"
+	- "Do you want to go grab something to eat ?"
+	- "Look at this sick yo-yo trick !"
+
+	// questions		[5]
+	- "Can you tell me how to pull ?"
+	- "Do you know the syntax of this ?"
+	- "I don't know why this doesn't work"
+	- "I don't remember how to do this, could you help me ?"
+	- "I'm new to this language, can you tell me how to do this ?"
+	
+	// jokes			[1]
+	- "Do you know how to fix all the bugs ? press delete !"
+
+
+// player's character answers
+	// bullshit answers [5]
+	- "That's cool, now back to work"
+	- "Yeah wathever..."
+	- "I don't have time for this, and you shouldn't either !"
+	- "We'll talk about that later if you don't mind"
+	- "We have work to do, stay focused !"
+
+	// question answers	[5]
+	- "Here, let me show you"
+	- "I sent you a link to the relevant stackoverflow thread"
+	- "Maybe you should try this"
+	- "Did you try this way ?"
+	- "It's done like this"
+
+	// jokes answers	[5]
+	- "That's a good one !"
+	- "I will write it in my joke book !"
+	- "I will reuse this one !"
+	- "You're so funny !"
+	- "I don't underst-Ah ! I got it now !"
