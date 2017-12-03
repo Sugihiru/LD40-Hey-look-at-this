@@ -36,6 +36,7 @@ public class Progress : MonoBehaviour
     private void UpdateTxt()
     {
         if (Img.fillAmount <= 1)
-            CompletionTxt.text = string.Format(@"{0}/{1} - {2}%", Value.ToString("F1"), MaxValue, (Img.fillAmount * 100).ToString("F1"));
+            //CompletionTxt.text = string.Format(@"{0}/{1} - {2}%", Value.ToString("F1"), MaxValue, (Img.fillAmount * 100).ToString("F1"));
+            CompletionTxt.text = string.Format(@"{0}%", (Img.fillAmount * 100).ToString("F1"));
     }
 }

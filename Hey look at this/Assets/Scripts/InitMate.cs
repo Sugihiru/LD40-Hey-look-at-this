@@ -48,9 +48,10 @@ public class InitMate : MonoBehaviour
         }
         else if (seat && seated && transform.childCount == 0)
         {
-            int rnd = Random.Range(1,360);
+            int rnd = Random.Range(1,1337);
             if (rnd == 1)
                 SayShit();
+            //Here is when your mate want to bother you
         }
     }
 
@@ -86,9 +87,25 @@ public class InitMate : MonoBehaviour
     {
         var Shit = new string[]
         {
-            "Did you checked 9gag?", "How do you git pull?", "What's your pants color bro?",
-            "Remember this time i forgot to push? aha", "Is git reset --hard this bad?", "What to do when unity crash?",
-            "Do you know RNGesus?", "I'm a pirate,  be my princess", "Last DBS' episode was so cool! Goku died"
+            "Did you checked 9gag ?",
+            "How do you git pull ?",
+            "What's your pants color bro ?",
+            "Oups forgot to push",
+            "Is git reset --hard this bad ?",
+            "What to do when unity crash ?",
+            "Do you know RNGesus ?",
+            "I'm a pirate, be my princess",
+            "Goku died last DBS' episode",
+            "Wanna play my LudumDare ?",
+            "Antis are all homophobes!",
+            "Let's watch LOL Championships!",
+            "These day have been so cold",
+            "Don't bother me Kevin !",
+            "Nani desu ka !?",
+            "Don't lick my keyboard Kevin !",
+            "My microwave broke today",
+            "What do you think of Kevin ?",
+            "♪ Never gonna give you up ♫"   
         };
         int rnd = Random.Range(0, Shit.Length);
         textGameObject.text = Shit[rnd];
