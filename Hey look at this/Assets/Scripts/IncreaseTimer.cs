@@ -34,6 +34,11 @@ public class IncreaseTimer : MonoBehaviour
             timeSpan -= span;
             UpdateDate();
         }
+        else
+        {
+            GameOverManager.GameOverText = "You lost :(\nYou didn't manage to finish your project at time";
+            GameOverManager.LoadGameOverScene();
+        }
     }
 
     private void UpdateDate()
