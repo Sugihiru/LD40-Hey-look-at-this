@@ -6,7 +6,8 @@ using System.IO;
 using UnityEngine.UI;
 
 public class Typer : MonoBehaviour {
-	public bool over;
+	private bool over {get; private set;}
+	public GameObject panel;
 
 	private string[] to_type;
 	private int list_offset;
@@ -24,7 +25,7 @@ public class Typer : MonoBehaviour {
 		"def",
 		"else",
 		"is",
-		"None",
+		"none",
 		"not"
 	};
 	// Use this for initialization
@@ -37,7 +38,6 @@ public class Typer : MonoBehaviour {
 		for (int i = 0; i < 10; i++) {
 			int nbr = Random.Range(0, words.Length);
 			to_type[i] = words[nbr];
-			result += to_type[i] + " ";
 		}
 
 	}
@@ -49,21 +49,23 @@ public class Typer : MonoBehaviour {
 			char letter = word[word_offset];
 			if (Input.GetKey(letter.ToString())) {
 				word_offset += 1;
+
 				if (word_offset == word.Length) {
 					word_offset = 0;
 					list_offset += 1;
 					if (list_offset == to_type.Length) {
 						over = true;
+						panel.SetActive(false);
 					}
 				}
 			}
 			Text display = gameObject.GetComponent<Text>();
 			//Debug.Log("Yahaha");
-			display.text = word.Substring(word_offset);
-		}
-		else {
-			Text display = gameObject.GetComponent<Text>();
-			display.text = "";
+			result = "";
+			for (int i = list_offset; i < 10; i++) {
+				result += to_type[i] + " ";
+			}
+			display.text = result.Substring(word_offset);
 		}
 	}
 }
