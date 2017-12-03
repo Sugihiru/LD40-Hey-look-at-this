@@ -6,7 +6,7 @@ using System.IO;
 using UnityEngine.UI;
 
 public class Typer : MonoBehaviour {
-	private bool over {get; private set;}
+	private bool over {get;set;}
 	public GameObject panel;
 
 	private string[] to_type;
