@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionButtonScript : MonoBehaviour
 {
-    private GameObject TypingGameWin;
+    private GameObject MinigameWin;
 
     public enum ActionDuration
     {
@@ -15,19 +15,19 @@ public class ActionButtonScript : MonoBehaviour
 
     public void Start()
     {
-        TypingGameWin = GameObject.Find("Canvas/TypingGameWindow");
+        MinigameWin = GameObject.Find("MinigamePanel");
     }
 
     public void OnFastActionButtonClick(ActionDuration actionDuration)
     {
-        TypingGameWin.SetActive(true);
+        MinigameWin.SetActive(true);
         return;
     }
 
 
     public void OnActionButtonClick()
     {
-        TypingGameWin.SetActive(true);
+        MinigameWin.SetActive(true);
         return;
     }
 }
