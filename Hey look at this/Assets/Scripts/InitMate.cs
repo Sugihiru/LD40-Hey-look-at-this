@@ -9,6 +9,9 @@ public class InitMate : MonoBehaviour
     public int TimeBeforeMovingToComputer;
     public int MvtSpd;
     public GameObject SpeechBubble;
+    public Sprite sp1;
+    public Sprite sp2;
+    public Sprite sp3;
 
     private GameObject seat = null;
     private bool seated = false;
@@ -17,6 +20,13 @@ public class InitMate : MonoBehaviour
     void Start()
     {
         SayHello();
+        int rnd = Random.Range(1,4);
+        if (rnd == 1)
+            GetComponent<SpriteRenderer>().sprite = sp1;
+        else if (rnd == 2)
+            GetComponent<SpriteRenderer>().sprite = sp2;
+        else
+            GetComponent<SpriteRenderer>().sprite = sp3;
         GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + GameObject.FindGameObjectsWithTag("Mate").Length);
         button.SetActive(true);
         StartCoroutine(ExecuteAfterTime(TimeBeforeMovingToComputer));
