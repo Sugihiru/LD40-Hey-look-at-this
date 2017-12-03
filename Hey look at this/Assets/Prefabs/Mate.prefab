@@ -56,6 +56,9 @@ MonoBehaviour:
   MvtSpd: 10
   SpeechBubble: {fileID: 1302690174506246, guid: 84c922dea8f509a4d9268ab928acf7de,
     type: 2}
+  sp1: {fileID: 21300000, guid: 0ba30aa92b77f8040be06e9b6734a398, type: 3}
+  sp2: {fileID: 21300000, guid: 4b61432f6c1016b46af2c7a58d50b917, type: 3}
+  sp3: {fileID: 21300000, guid: 5f6e579cfaa9fc84fae9b95130cb2cf5, type: 3}
 --- !u!212 &212431610116151322
 SpriteRenderer:
   m_ObjectHideFlags: 1
