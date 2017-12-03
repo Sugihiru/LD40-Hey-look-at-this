@@ -24,7 +24,7 @@ public class Typer : MonoBehaviour {
 		"def",
 		"else",
 		"is",
-		"None",
+		"none",
 		"not"
 	};
 	// Use this for initialization
