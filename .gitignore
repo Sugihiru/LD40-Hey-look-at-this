@@ -33,6 +33,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-*/Library/ScriptAssemblies/
 */obj/
 */Temp
