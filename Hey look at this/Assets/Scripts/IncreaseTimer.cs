@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class IncreaseTimer : MonoBehaviour
 {
-    public float MaxValue;
-    public float PtsLostPerSecond;
     public Text TimerTxt;
+    public int NbMinDeadline;
 
     private float Value = 0;
     private Image Img;
-    private TimeSpan timeSpan = new TimeSpan(0, 10, 0);
+    private TimeSpan timeSpan;
+    private float MaxValue;
 
     // Use this for initialization
     void Start()
     {
+        timeSpan = new TimeSpan(0, NbMinDeadline, 0);
+        MaxValue = NbMinDeadline * 60;
         Img = gameObject.GetComponent<Image>();
         UpdateDate();
     }
@@ -27,8 +27,8 @@ public class IncreaseTimer : MonoBehaviour
     {
         if (Value < MaxValue)
         {
-            Value += PtsLostPerSecond * Time.deltaTime;
-            Img.fillAmount = Value / MaxValue;
+            Value += Time.deltaTime;
+            Img.fillAmount = 1 - (Value / MaxValue);
 
             TimeSpan span = TimeSpan.FromSeconds(Time.deltaTime);
             timeSpan -= span;

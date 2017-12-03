@@ -3305,7 +3305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e505460dcb8f49449a2c8a8de0c26c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  over: 0
+  panel: {fileID: 2139322766}
 --- !u!1 &1729283698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,9 +3387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fae63c08b29bfd4e875335ba47fc728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxValue: 100
-  PtsLostPerSecond: 1
   TimerTxt: {fileID: 31029540}
+  NbMinDeadline: 10
 --- !u!1 &1792228617
 GameObject:
   m_ObjectHideFlags: 0
