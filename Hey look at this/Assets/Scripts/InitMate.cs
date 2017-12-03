@@ -27,6 +27,7 @@ public class InitMate : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = sp2;
         else
             GetComponent<SpriteRenderer>().sprite = sp3;
+
         GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + GameObject.FindGameObjectsWithTag("Mate").Length);
         button.SetActive(true);
         StartCoroutine(ExecuteAfterTime(TimeBeforeMovingToComputer));
@@ -45,6 +46,12 @@ public class InitMate : MonoBehaviour
             float step = MvtSpd * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, seat.transform.position, step);
         }
+        else if (seat && seated && transform.childCount == 0)
+        {
+            int rnd = Random.Range(1,360);
+            if (rnd == 1)
+                SayShit();
+        }
     }
 
     IEnumerator ExecuteAfterTime(float time)
@@ -62,6 +69,29 @@ public class InitMate : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.FromToRotation(seat.transform.position, transform.position);
+    }
+
+    private void SayShit()
+    {
+        Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+
+        GameObject bubbleGameObject = Instantiate(SpeechBubble, bubblePosition, transform.rotation);
+        Text textGameObject = bubbleGameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
+        SetShitText(textGameObject);
+
+        bubbleGameObject.transform.SetParent(transform);
+    }
+
+    private void SetShitText(Text textGameObject)
+    {
+        var Shit = new string[]
+        {
+            "Did you checked 9gag?", "How do you git pull?", "What's your pants color bro?",
+            "Remember this time i forgot to push? aha", "Is git reset --hard this bad?", "What to do when unity crash?",
+            "Do you know RNGesus?", "I'm a pirate,  be my princess", "Last DBS' episode was so cool! Goku died"
+        };
+        int rnd = Random.Range(0, Shit.Length);
+        textGameObject.text = Shit[rnd];
     }
 
     private void SayHello()
