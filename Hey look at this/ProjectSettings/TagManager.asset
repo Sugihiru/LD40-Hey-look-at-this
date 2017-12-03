@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Minigame
+    uniqueID: 135265147
+    locked: 0
   - name: Characters
     uniqueID: 3323690071
     locked: 0

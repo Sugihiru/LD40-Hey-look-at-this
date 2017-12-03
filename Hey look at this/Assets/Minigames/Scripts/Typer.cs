@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using UnityEngine.UI;
 
 public class Typer : MonoBehaviour {
 	public bool over;
@@ -10,6 +11,7 @@ public class Typer : MonoBehaviour {
 	private string[] to_type;
 	private int list_offset;
 	private int word_offset;
+	private string result;
 	private string[] words = {
 		"for",
 		"each",
@@ -35,7 +37,9 @@ public class Typer : MonoBehaviour {
 		for (int i = 0; i < 10; i++) {
 			int nbr = Random.Range(0, words.Length);
 			to_type[i] = words[nbr];
+			result += to_type[i] + " ";
 		}
+
 	}
 
 	// Update is called once per frame
@@ -53,6 +57,13 @@ public class Typer : MonoBehaviour {
 					}
 				}
 			}
+			Text display = gameObject.GetComponent<Text>();
+			//Debug.Log("Yahaha");
+			display.text = word.Substring(word_offset);
+		}
+		else {
+			Text display = gameObject.GetComponent<Text>();
+			display.text = "";
 		}
 	}
 }
