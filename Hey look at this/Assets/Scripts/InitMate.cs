@@ -70,8 +70,9 @@ public class InitMate : MonoBehaviour
         int nbOtherMate = GameObject.FindGameObjectsWithTag("Mate").Length;
         var HelloSentences = new string[]
         {
-            "yo bois", "hey dude", "wassup", "gimme money",
-            "hey u, you look funny", "d'you have some food ?", "is it the cat fanclub ?", "Hey ! It's me, Mister Riichi!"
+            "Yo bois", "Hey dude", "Wassup bro", "Gimme money",
+            "Hey u, you look funny", "Woul'd you have some food ?",
+            "Is it the cat fanclub ?", "Hey ! It's me, Mister Riichi!"
         };
 
         textGameObject.text = HelloSentences[nbOtherMate - 1];
