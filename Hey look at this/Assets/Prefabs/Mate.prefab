@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 1951881896653088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,9 +56,14 @@ MonoBehaviour:
   MvtSpd: 10
   SpeechBubble: {fileID: 1302690174506246, guid: 84c922dea8f509a4d9268ab928acf7de,
     type: 2}
-  sp1: {fileID: 21300000, guid: 0ba30aa92b77f8040be06e9b6734a398, type: 3}
-  sp2: {fileID: 21300000, guid: 4b61432f6c1016b46af2c7a58d50b917, type: 3}
-  sp3: {fileID: 21300000, guid: 5f6e579cfaa9fc84fae9b95130cb2cf5, type: 3}
+  sp1: {fileID: 21300000, guid: 693908c98f7790840bb5bbc7345a46e2, type: 3}
+  sp2: {fileID: 21300000, guid: 28e4988e46c5ff54ea2d1c23cfaf6999, type: 3}
+  sp3: {fileID: 21300000, guid: 2c5898b32bbc401438f1eb60d9e17b40, type: 3}
+  sp4: {fileID: 21300000, guid: f9e95612ada756a45b526447aa53e244, type: 3}
+  sp5: {fileID: 21300000, guid: cdcad6dcd93d9274e89925848b939a04, type: 3}
+  sp6: {fileID: 21300000, guid: 56bf1636d23fd254bb05c30964c34786, type: 3}
+  sp7: {fileID: 21300000, guid: bc31fd7dc549f4f40a76f2d005c932b0, type: 3}
+  sp8: {fileID: 21300000, guid: 5b7585c9117e6774295079f4aa5ec7b9, type: 3}
 --- !u!212 &212431610116151322
 SpriteRenderer:
   m_ObjectHideFlags: 1

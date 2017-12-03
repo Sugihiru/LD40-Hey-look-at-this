@@ -12,6 +12,12 @@ public class InitMate : MonoBehaviour
     public Sprite sp1;
     public Sprite sp2;
     public Sprite sp3;
+    public Sprite sp4;
+    public Sprite sp5;
+    public Sprite sp6;
+    public Sprite sp7;
+    public Sprite sp8;
+
 
     private GameObject seat = null;
     private bool seated = false;
@@ -20,13 +26,23 @@ public class InitMate : MonoBehaviour
     void Start()
     {
         SayHello();
-        int rnd = Random.Range(1,4);
+        int rnd = Random.Range(1,9);
         if (rnd == 1)
             GetComponent<SpriteRenderer>().sprite = sp1;
         else if (rnd == 2)
             GetComponent<SpriteRenderer>().sprite = sp2;
-        else
+        else if (rnd == 3)
             GetComponent<SpriteRenderer>().sprite = sp3;
+        else if (rnd == 4)
+            GetComponent<SpriteRenderer>().sprite = sp4;
+        else if (rnd == 5)
+            GetComponent<SpriteRenderer>().sprite = sp5;
+        else if (rnd == 6)
+            GetComponent<SpriteRenderer>().sprite = sp6;
+        else if (rnd == 7)
+            GetComponent<SpriteRenderer>().sprite = sp7;
+        else
+            GetComponent<SpriteRenderer>().sprite = sp8;
 
         GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + GameObject.FindGameObjectsWithTag("Mate").Length);
         button.SetActive(true);
