@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Progress : MonoBehaviour
@@ -26,6 +24,11 @@ public class Progress : MonoBehaviour
             if (Value > MaxValue)
                 Value = MaxValue;
             Img.fillAmount = Value / MaxValue;
+            if (Img.fillAmount >= 1)
+            {
+                GameOverManager.GameOverText = "Congratulations ! You won !";
+                GameOverManager.LoadGameOverScene();
+            }
             UpdateTxt();
         }
     }
