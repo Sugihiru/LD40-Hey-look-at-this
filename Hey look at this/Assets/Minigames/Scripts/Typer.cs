@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Typer : MonoBehaviour {
 	private bool over {get;set;}
 	private bool mustRestart {get;set;}
-	public GameObject panel;
 
 	private Text display;
 	private string[] to_type;
@@ -28,7 +27,8 @@ public class Typer : MonoBehaviour {
 	};
 	// Use this for initialization
 	void Start () {
-		display = gameObject.GetComponent<Text>();
+		gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Coding for the project";
+		display = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 		display.text = "";
 		mustRestart = true;
 	}
@@ -54,7 +54,7 @@ public class Typer : MonoBehaviour {
 		if (! over) {
 			string word = to_type[list_offset];
 			char letter = word[word_offset];
-			if (Input.GetKey(letter.ToString())) {
+			if (Input.GetKeyUp(letter.ToString())) {
 				word_offset += 1;
 
 				if (word_offset == word.Length) {
@@ -62,7 +62,7 @@ public class Typer : MonoBehaviour {
 					list_offset += 1;
 					if (list_offset == to_type.Length) {
 						over = true;
-						panel.SetActive(false);
+						gameObject.SetActive(false);
 					}
 				}
 			}
@@ -71,7 +71,7 @@ public class Typer : MonoBehaviour {
 			for (int i = list_offset; i < 10; i++) {
 				result += to_type[i] + " ";
 			}
-			display.text = result.Substring(word_offset);
+			display.text = "> " + result.Substring(word_offset);
 		}
 	}
 }

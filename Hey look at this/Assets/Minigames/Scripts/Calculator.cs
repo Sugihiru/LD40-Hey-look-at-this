@@ -20,6 +20,7 @@ public class Calculator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Dude, help me, what's the answer ?";
 		requiredSuccess = 5;
 		nbrSuccess = 0;
 		mustRestart = true;
@@ -44,19 +45,16 @@ public class Calculator : MonoBehaviour {
 			mustRestart = false;
 		}
 
-		if (!over)
-        {
-            try
-            {
-                input = int.Parse(answer.text);
-            }
-            catch (System.FormatException)
-            {
-                return;
-            }
+		if (! over && answer.text != "") {
+			try {
+					input = int.Parse(answer.text);
+			} catch (System.FormatException) {
+					return;
+			}
 
-            if (input == expected) {
+			if (input == expected) {
 				nbrSuccess += 1;
+				answer.text = "";
 				if (nbrSuccess == requiredSuccess) {
 					over = true;
 					gameObject.SetActive(false);
