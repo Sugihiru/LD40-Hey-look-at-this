@@ -51,7 +51,7 @@ public class InitMate : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = sp8;
         StartCoroutine(MoveAfterTime(TimeBeforeMovingToComputer));
 	}
-	
+
 	// Update is called once per frame
 	void Update()
     {
@@ -114,10 +114,10 @@ public class InitMate : MonoBehaviour
     {
         var Shit = new string[]
         {
-            "Did you checked 9gag ?",
+            "Did you check 9gag ?",
             "How do you git pull ?",
-            "What's your pants color bro ?",
-            "Oups forgot to push",
+            "What's your pants' color bro ?",
+            "Oops forgot to push",
             "Is git reset --hard this bad ?",
             "What to do when unity crash ?",
             "Do you know RNGesus ?",
@@ -126,13 +126,13 @@ public class InitMate : MonoBehaviour
             "Wanna play my LudumDare ?",
             "Antis are all homophobes!",
             "Let's watch LOL Championships!",
-            "These day have been so cold",
+            "These days have been so cold",
             "Don't bother me Kevin !",
             "Nani desu ka !?",
             "Don't lick my keyboard Kevin !",
             "My microwave broke today",
             "What do you think of Kevin ?",
-            "♪ Never gonna give you up ♫"   
+            "♪ Never gonna give you up ♫"
         };
         int rnd = Random.Range(0, Shit.Length);
         textGameObject.text = Shit[rnd];
@@ -149,8 +149,8 @@ public class InitMate : MonoBehaviour
         int nbOtherMate = GameObject.FindGameObjectsWithTag("Mate").Length;
         var HelloSentences = new string[]
         {
-            "Yo bois", "Hey dude", "Wassup bro", "Gimme money",
-            "Hey u, you look funny", "Woul'd you have some food ?",
+            "Yo boi", "Hey dude", "Wassup bro", "Gimme money",
+            "Hey you, you look funny", "Would you have some food ?",
             "Is it the cat fanclub ?", "Hey ! It's me, Mister Riichi!"
         };
 
@@ -170,7 +170,7 @@ public class InitMate : MonoBehaviour
         {
             "Can you help me ? I have merge issues!",
             "Hey dude, can you show me how to fix this problem ?",
-            "I pulled ur code and it doesn't work ! Help me!"
+            "I pull'ed ur code and it doesn't work ! Help me!"
         };
 
         int rnd = Random.Range(0, BotherSentences.Length);
