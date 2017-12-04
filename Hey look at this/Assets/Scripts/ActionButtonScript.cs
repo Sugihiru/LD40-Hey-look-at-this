@@ -6,6 +6,9 @@ public class ActionButtonScript : MonoBehaviour
 {
     public GameObject MinigameWin;
 
+    private Calculator calcMinigame;
+    private Typer typerMinigame;
+
     public enum ActionDuration
     {
         FAST,
@@ -15,6 +18,8 @@ public class ActionButtonScript : MonoBehaviour
 
     public void Start()
     {
+        calcMinigame = MinigameWin.transform.GetChild(1).GetComponent<Calculator>();
+        typerMinigame = MinigameWin.transform.GetChild(0).GetComponent<Typer>();
     }
 
     public void OnFastActionButtonClick()
@@ -22,18 +27,23 @@ public class ActionButtonScript : MonoBehaviour
         StartMinigame(ActionDuration.FAST);
     }
 
-
-    public void OnActionButtonClick()
+    public void OnMedActionButtonClick()
     {
-        MinigameWin.SetActive(true);
-        return;
+        StartMinigame(ActionDuration.MEDIUM);
     }
 
     private void StartMinigame(ActionDuration actionDuration)
     {
-        Calculator calc = MinigameWin.transform.GetChild(0).GetComponent<Calculator>();
-        calc.over = false;
-        calc.mustRestart = true;
+        if (actionDuration == ActionDuration.FAST)
+        {
+            typerMinigame.gameObject.SetActive(false);
+            calcMinigame.Reset();
+        }
+        else
+        {
+            calcMinigame.gameObject.SetActive(false);
+            typerMinigame.Reset();
+        }
         MinigameWin.SetActive(true);
     }
 }
