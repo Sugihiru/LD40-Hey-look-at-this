@@ -9,11 +9,12 @@ public class ActionButtonScript : MonoBehaviour
     private Calculator calcMinigame;
     private Typer typerMinigame;
 
-    public enum ActionDuration
+    public enum ActionType
     {
         FAST,
         MEDIUM,
-        LONG
+        LONG,
+        MATE_ACTION
     };
 
     public void Start()
@@ -24,26 +25,47 @@ public class ActionButtonScript : MonoBehaviour
 
     public void OnFastActionButtonClick()
     {
-        StartMinigame(ActionDuration.FAST);
+        StartMinigame(ActionType.FAST);
     }
 
     public void OnMedActionButtonClick()
     {
-        StartMinigame(ActionDuration.MEDIUM);
+        StartMinigame(ActionType.MEDIUM);
     }
 
-    private void StartMinigame(ActionDuration actionDuration)
+    public void OnLongActionButtonClick()
     {
-        if (actionDuration == ActionDuration.FAST)
+        StartMinigame(ActionType.LONG);
+    }
+
+    public void OnMateActionButtonClick()
+    {
+        StartMinigame(ActionType.MATE_ACTION);
+    }
+
+    private void StartMinigame(ActionType actionType)
+    {
+        if (actionType == ActionType.FAST)
         {
-            typerMinigame.gameObject.SetActive(false);
+            cancelAllMinigames();
+            calcMinigame.Reset();
+        }
+        else if (actionType == ActionType.MATE_ACTION)
+        {
+            cancelAllMinigames();
             calcMinigame.Reset();
         }
         else
         {
-            calcMinigame.gameObject.SetActive(false);
+            cancelAllMinigames();
             typerMinigame.Reset();
         }
         MinigameWin.SetActive(true);
+    }
+
+    private void cancelAllMinigames()
+    {
+        typerMinigame.gameObject.SetActive(false);
+        calcMinigame.gameObject.SetActive(false);
     }
 }
