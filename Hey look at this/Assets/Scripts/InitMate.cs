@@ -18,13 +18,19 @@ public class InitMate : MonoBehaviour
     public Sprite sp7;
     public Sprite sp8;
 
+    private int id;
 
     private GameObject seat = null;
     private bool seated = false;
 
+    // Bother action variables
+    private float timeBeforeBotheringYou = 10.0f;
+    private bool isBotheringYou = false;
+
     // Use this for initialization
     void Start()
     {
+        id = GameObject.FindGameObjectsWithTag("Mate").Length;
         SayHello();
         int rnd = Random.Range(1,9);
         if (rnd == 1)
@@ -43,10 +49,7 @@ public class InitMate : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = sp7;
         else
             GetComponent<SpriteRenderer>().sprite = sp8;
-
-        GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + GameObject.FindGameObjectsWithTag("Mate").Length);
-        button.SetActive(true);
-        StartCoroutine(ExecuteAfterTime(TimeBeforeMovingToComputer));
+        StartCoroutine(MoveAfterTime(TimeBeforeMovingToComputer));
 	}
 	
 	// Update is called once per frame
@@ -65,13 +68,17 @@ public class InitMate : MonoBehaviour
         else if (seat && seated && transform.childCount == 0)
         {
             int rnd = Random.Range(1,1337);
-            if (rnd == 1)
+            if (rnd == 1 && !isBotheringYou)
                 SayShit();
-            //Here is when your mate want to bother you
+            timeBeforeBotheringYou -= Time.deltaTime;
+            if (timeBeforeBotheringYou <= 0 && !isBotheringYou)
+            {
+                TriggerMateAction();
+            }
         }
     }
 
-    IEnumerator ExecuteAfterTime(float time)
+    IEnumerator MoveAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
         MoveToComputer();
@@ -79,7 +86,7 @@ public class InitMate : MonoBehaviour
 
     private void MoveToComputer()
     {
-        seat = GameObject.Find("Seats/Seat" + GameObject.FindGameObjectsWithTag("Mate").Length);
+        seat = GameObject.Find("Seats/Seat" + id);
         if (!seat)
         {
             Debug.Log("Seat not found");
@@ -88,15 +95,19 @@ public class InitMate : MonoBehaviour
         transform.rotation = Quaternion.FromToRotation(seat.transform.position, transform.position);
     }
 
-    private void SayShit()
+    private Text CreateSpeechBubbleAndGetTxtComponent()
     {
         Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
 
         GameObject bubbleGameObject = Instantiate(SpeechBubble, bubblePosition, transform.rotation);
-        Text textGameObject = bubbleGameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
-        SetShitText(textGameObject);
-
         bubbleGameObject.transform.SetParent(transform);
+        return (bubbleGameObject.transform.GetChild(1).gameObject.GetComponent<Text>());
+    }
+
+    private void SayShit()
+    {
+        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent();
+        SetShitText(textGameObject);
     }
 
     private void SetShitText(Text textGameObject)
@@ -129,13 +140,8 @@ public class InitMate : MonoBehaviour
 
     private void SayHello()
     {
-        Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-
-        GameObject bubbleGameObject = Instantiate(SpeechBubble, bubblePosition, transform.rotation);
-        Text textGameObject = bubbleGameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
+        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent();
         SetHelloTextOnId(textGameObject);
-
-        bubbleGameObject.transform.SetParent(transform);
     }
 
     private void SetHelloTextOnId(Text textGameObject)
@@ -149,5 +155,33 @@ public class InitMate : MonoBehaviour
         };
 
         textGameObject.text = HelloSentences[nbOtherMate - 1];
+    }
+
+    private void SayBotherSentence()
+    {
+        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent();
+        SetBotherText(textGameObject);
+    }
+
+    private void SetBotherText(Text textGameObject)
+    {
+        int nbOtherMate = GameObject.FindGameObjectsWithTag("Mate").Length;
+        var BotherSentences = new string[]
+        {
+            "Can you help me ? I have merge issues!",
+            "Hey dude, can you show me how to fix this problem ?",
+            "I pulled ur code and it doesn't work ! Help me!"
+        };
+
+        int rnd = Random.Range(0, BotherSentences.Length);
+        textGameObject.text = BotherSentences[rnd];
+    }
+
+    private void TriggerMateAction()
+    {
+        isBotheringYou = true;
+        GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + id);
+        button.SetActive(true);
+        SayBotherSentence();
     }
 }
