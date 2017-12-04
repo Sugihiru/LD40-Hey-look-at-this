@@ -9,6 +9,6 @@ public static class GameOverManager
 
     public static void LoadGameOverScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
