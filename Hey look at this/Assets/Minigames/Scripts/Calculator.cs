@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+//﻿using System.Collections;
+//using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,6 +52,7 @@ public class Calculator : MonoBehaviour {
 			mustRestart = false;
 		}
 
+
 		if (! over && answer.text != "") {
 			try {
 					input = int.Parse(answer.text);
@@ -68,6 +70,11 @@ public class Calculator : MonoBehaviour {
 				else {
 					mustRestart = true;
 				}
+			}
+			else if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.KeypadEnter)) {
+				answer.text = "";
+				EventSystem.current.SetSelectedGameObject(answer.gameObject, null);
+				answer.OnPointerClick(new PointerEventData(EventSystem.current));
 			}
 		}
 	}
