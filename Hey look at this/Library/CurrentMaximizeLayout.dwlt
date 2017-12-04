@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 25583
+  controlID: 29858
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 25584
+  controlID: 29859
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 25562
+  controlID: 29860
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,7 +203,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 7a56f6fff86bf6ff0c8bf6ff2ae9f7ff8af6f7ffd4f7f8ff34f8f8ff5cf9f8ff64f9f8ff68f9f8ff569dfaff0c79fbffcec6fbff3edcfdff9cf2feff68fdfeff6afffeff860dffffc20effffce61ffffb87dffff4e7effff8880ffffd497ffff36b9ffff8aedffffe8f2ffffd4f6ffffa6fbffff000000008c2900006e2c0000ec2c0000522e0000b8490000104a00006253000056780000887900004e9e000066a30000b8a3000020a400004ca4000098a4000078bc00005cbf0000cebf000046c000001eed000028ed000036ed0000b6f20000f4f3000054f7000098f70000
+    m_ExpandedIDs: 923bf5ffdc22f6ff7a56f6fff86bf6ff0c8bf6ff2ae9f7ff8af6f7ffd4f7f8ff34f8f8ff5cf9f8ff64f9f8ff68f9f8ff569dfaff0c79fbffcec6fbff3edcfdff9cf2feff68fdfeff6afffeff860dffffc20effffce61ffffb87dffff4e7effff8880ffffd497ffff36b9ffff8aedffffe8f2ffffd4f6ffffa6fbffff000000008c2900006e2c0000ec2c0000522e0000b8490000104a00006253000056780000887900004e9e000066a30000b8a3000020a400004ca4000098a4000078bc00005cbf0000cebf000046c000001eed000028ed000036ed0000b6f20000f4f3000054f7000098f70000d007010076080100a208010080130100c61301005c140100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 802
     height: 395
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -418,18 +418,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sprites
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sprites
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Sugi\Desktop\LD40\Hey look at this
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 10}
-    m_SelectedIDs: ae270000
-    m_LastClickedID: 10158
+    m_SelectedIDs: 52280000
+    m_LastClickedID: 10322
     m_ExpandedIDs: 000000003c270000a4270000ae270000d628000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
