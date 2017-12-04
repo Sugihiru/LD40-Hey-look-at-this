@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Calculator : MonoBehaviour {
-	private bool over {get;set;}
-	private bool mustRestart {get;set;}
+	public bool over {get;set;}
+	public bool mustRestart {get;set;}
 
 
 	private Text operation;
@@ -44,9 +44,18 @@ public class Calculator : MonoBehaviour {
 			mustRestart = false;
 		}
 
-		if (! over) {
-			input = int.Parse(answer.text);
-			if (input == expected) {
+		if (!over)
+        {
+            try
+            {
+                input = int.Parse(answer.text);
+            }
+            catch (System.FormatException)
+            {
+                return;
+            }
+
+            if (input == expected) {
 				nbrSuccess += 1;
 				if (nbrSuccess == requiredSuccess) {
 					over = true;

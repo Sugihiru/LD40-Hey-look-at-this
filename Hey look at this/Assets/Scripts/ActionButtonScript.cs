@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionButtonScript : MonoBehaviour
 {
-    private GameObject MinigameWin;
+    public GameObject MinigameWin;
 
     public enum ActionDuration
     {
@@ -15,13 +15,11 @@ public class ActionButtonScript : MonoBehaviour
 
     public void Start()
     {
-        MinigameWin = GameObject.Find("MinigamePanel");
     }
 
-    public void OnFastActionButtonClick(ActionDuration actionDuration)
+    public void OnFastActionButtonClick()
     {
-        MinigameWin.SetActive(true);
-        return;
+        StartMinigame(ActionDuration.FAST);
     }
 
 
@@ -29,5 +27,13 @@ public class ActionButtonScript : MonoBehaviour
     {
         MinigameWin.SetActive(true);
         return;
+    }
+
+    private void StartMinigame(ActionDuration actionDuration)
+    {
+        Calculator calc = MinigameWin.transform.GetChild(0).GetComponent<Calculator>();
+        calc.over = false;
+        calc.mustRestart = true;
+        MinigameWin.SetActive(true);
     }
 }
