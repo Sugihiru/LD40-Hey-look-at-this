@@ -17,6 +17,8 @@ public class InitMate : MonoBehaviour
     public Sprite sp6;
     public Sprite sp7;
     public Sprite sp8;
+    public AudioClip Hey;
+    public AudioSource audioSource;
 
     private int id;
 
@@ -30,6 +32,7 @@ public class InitMate : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+    	audioSource = GetComponent<AudioSource>();
         id = GameObject.FindGameObjectsWithTag("Mate").Length;
         SayHello();
         int rnd = Random.Range(1,9);
@@ -104,7 +107,7 @@ public class InitMate : MonoBehaviour
 
     private void SayShit()
     {
-        int rnd = Random.Range(-4, 5);
+        int rnd = Random.Range(-3, 4);
         Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + rnd, transform.position.z);
         Text textGameObject = CreateSpeechBubbleAndGetTxtComponent(bubblePosition);
         SetShitText(textGameObject);
@@ -160,6 +163,7 @@ public class InitMate : MonoBehaviour
 
     private void SayBotherSentence()
     {
+    	audioSource.PlayOneShot(Hey, 0.7F);
         Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         Text textGameObject = CreateSpeechBubbleAndGetTxtComponent(bubblePosition);
         SetBotherText(textGameObject);
