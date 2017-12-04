@@ -28,6 +28,11 @@ public class Calculator : MonoBehaviour {
 		operation = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 	}
 
+	void Reset() {
+		Start();
+		over = false;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (mustRestart) {

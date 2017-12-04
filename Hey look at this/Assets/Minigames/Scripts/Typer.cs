@@ -33,12 +33,12 @@ public class Typer : MonoBehaviour {
 		mustRestart = true;
 	}
 
-	private void init() {
-
+	public void Reset() {
+		Start();
+		over = false;
 	}
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("lel");
 		if (mustRestart) {
 			to_type = new string[10];
 			over = false;
