@@ -54,6 +54,7 @@ public class Typer : MonoBehaviour {
 	public void Reset() {
 		Start();
 		over = false;
+		gameObject.SetActive(true);
 	}
 	// Update is called once per frame
 	void Update () {

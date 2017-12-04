@@ -28,9 +28,10 @@ public class Calculator : MonoBehaviour {
 		operation = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 	}
 
-	void Reset() {
+	public void Reset() {
 		Start();
 		over = false;
+		gameObject.SetActive(true);
 	}
 
 	// Update is called once per frame
