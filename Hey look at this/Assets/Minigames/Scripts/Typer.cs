@@ -10,6 +10,7 @@ public class Typer : MonoBehaviour {
 	private bool mustRestart {get;set;}
 	public GameObject panel;
 
+	private Text display;
 	private string[] to_type;
 	private int list_offset;
 	private int word_offset;
@@ -31,7 +32,7 @@ public class Typer : MonoBehaviour {
 	};
 	// Use this for initialization
 	void Start () {
-		Text display = gameObject.GetComponent<Text>();
+		display = gameObject.GetComponent<Text>();
 		display.text = "";
 		mustRestart = true;
 	}
@@ -69,7 +70,6 @@ public class Typer : MonoBehaviour {
 					}
 				}
 			}
-			Text display = gameObject.GetComponent<Text>();
 			//Debug.Log("Yahaha");
 			result = "";
 			for (int i = list_offset; i < 10; i++) {
