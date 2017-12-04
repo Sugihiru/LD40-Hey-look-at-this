@@ -20,7 +20,7 @@ public class Progress : MonoBehaviour
     {
         if (Value < MaxValue)
         {
-            Value += (PtsWonPerSecPerPerson * GameObject.FindGameObjectsWithTag("Mate").Length) * Time.deltaTime;
+            Value += (PtsWonPerSecPerPerson * GetNbActiveMate()) * Time.deltaTime;
             if (Value > MaxValue)
                 Value = MaxValue;
             Img.fillAmount = Value / MaxValue;
@@ -38,5 +38,23 @@ public class Progress : MonoBehaviour
         if (Img.fillAmount <= 1)
             //CompletionTxt.text = string.Format(@"{0}/{1} - {2}%", Value.ToString("F1"), MaxValue, (Img.fillAmount * 100).ToString("F1"));
             CompletionTxt.text = string.Format(@"{0}%", (Img.fillAmount * 100).ToString("F1"));
+    }
+
+    public void AddPts(float pts)
+    {
+        Debug.Log(pts);
+        Value += pts;
+        UpdateTxt();
+    }
+
+    private int GetNbActiveMate()
+    {
+        int nbActiveMate = 0;
+        foreach(GameObject mate in GameObject.FindGameObjectsWithTag("Mate"))
+        {
+            if (mate.GetComponent<InitMate>().IsWorking())
+                ++nbActiveMate;
+        }
+        return nbActiveMate;
     }
 }

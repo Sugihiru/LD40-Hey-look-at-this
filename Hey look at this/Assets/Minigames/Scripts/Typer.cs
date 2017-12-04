@@ -1,13 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Typer : MonoBehaviour {
+public class Typer : MonoBehaviour
+{
+    public float nbPts;
+
+    private Progress progress;
 	private bool over {get;set;}
-	private bool mustRestart {get;set;}
 
 	private Text display;
-	private string[] to_type;
-	private int list_offset;
+    private List<string> to_type = new List<string>();
 	private int word_offset;
 	private string result;
 	private string[] words = {
@@ -41,58 +44,91 @@ public class Typer : MonoBehaviour {
 		"return",
 		"try",
 		"with",
-		"yield"
+		"yield",
+        "enumerate",
+        "print",
+        "int",
+        "input",
+        "str",
+        "open",
+        "range",
+        "zip",
 	};
 	private int difficulty;
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Coding for the project";
 		display = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 		display.text = "";
-		mustRestart = true;
+        ResetWordList();
+        progress = GameObject.Find("Canvas/ProgressBar/Foreground").GetComponent<Progress>();
 	}
 
-	public void Reset(int difficulty) {
+	public void Reset(int difficulty)
+    {
 		Start();
 		over = false;
 		gameObject.SetActive(true);
 		this.difficulty = difficulty;
+        ResetWordList();
 	}
-	// Update is called once per frame
-	void Update () {
-		if (mustRestart) {
-			to_type = new string[10 * (difficulty + 1)];
-			over = false;
-			list_offset = 0;
-			word_offset = 0;
 
-			for (int i = 0; i < 10 * (difficulty + 1); i++) {
-				int nbr = Random.Range(0, words.Length);
-				to_type[i] = words[nbr];
-			}
-			mustRestart = false;
-		}
-		if (! over) {
-			string word = to_type[list_offset];
+
+    void ResetWordList()
+    {
+        over = false;
+        word_offset = 0;
+
+        to_type.Clear();
+
+        for (int i = 0; i < 10 * (difficulty + 1); i++)
+        {
+            int nbr = Random.Range(0, words.Length);
+            to_type.Add(words[nbr]);
+        }
+    }
+
+	// Update is called once per frame
+	void Update()
+    {
+		if (!over)
+        {
+			string word = to_type[0];
 			char letter = word[word_offset];
-			if (Input.GetKeyUp(letter.ToString())) {
+			if (Input.GetKeyUp(letter.ToString()))
+            {
 				word_offset += 1;
 
-				if (word_offset == word.Length) {
+				if (word_offset == word.Length)
+                {
 					word_offset = 0;
-					list_offset += 1;
-					if (list_offset == to_type.Length) {
+                    // list_offset += 1;
+                    to_type.RemoveAt(0);
+                    if (to_type.Count == 0)
+					// if (list_offset == to_type.Length)
+                    {
 						over = true;
 						gameObject.SetActive(false);
 					}
 				}
 			}
-			//Debug.Log("Yahaha");
 			result = "";
-			for (int i = list_offset; i < 10; i++) {
+            int maxWordPrinted = (to_type.Count < 10) ? to_type.Count : 10;
+			for (int i = 0; i < maxWordPrinted; i++)
+            {
 				result += to_type[i] + " ";
 			}
 			display.text = "> " + result.Substring(word_offset);
 		}
 	}
+
+    void OnDisable()
+    {
+        if (over)
+        {
+            progress.AddPts(nbPts * (difficulty + 1));
+        }
+    }
 }

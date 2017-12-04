@@ -15,11 +15,13 @@ public class SpawnMates : MonoBehaviour
 
     void SpawnMate()
     {
-        if (GameObject.FindGameObjectsWithTag("Mate").Length == MaxNbMates)
+        int nbMates = GameObject.FindGameObjectsWithTag("Mate").Length;
+        if (nbMates == MaxNbMates)
         {
             CancelInvoke("SpawnMate");
             return;
         }
-        Instantiate(MatePrefab, transform.position, transform.rotation);
+        GameObject mate = Instantiate(MatePrefab, transform.position, transform.rotation);
+        mate.name = "Mate" + (nbMates + 1).ToString();
     }
 }

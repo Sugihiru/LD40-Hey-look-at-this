@@ -19,9 +19,10 @@ public class Calculator : MonoBehaviour {
 	private int nbrSuccess;
 	private int requiredSuccess;
 	private int difficulty;
+    private int MateId;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Dude, help me, what's the answer ?";
 		requiredSuccess = 5 * (difficulty + 1);
 		nbrSuccess = 0;
@@ -30,7 +31,9 @@ public class Calculator : MonoBehaviour {
 		operation = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 	}
 
-	public void Reset(int difficulty) {
+	public void Reset(int difficulty, int mateId)
+    {
+        MateId = mateId;
 		Start();
 		over = false;
 		gameObject.SetActive(true);
@@ -80,4 +83,13 @@ public class Calculator : MonoBehaviour {
 			}
 		}
 	}
+
+    void OnDisable()
+    {
+        if (over)
+        {
+            InitMate mateScript = GameObject.Find("Mate" + MateId.ToString()).GetComponent<InitMate>();
+            mateScript.StopBothering();
+        }
+    }
 }

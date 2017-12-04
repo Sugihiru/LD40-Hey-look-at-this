@@ -20,13 +20,16 @@ public class InitMate : MonoBehaviour
     public AudioClip Hey;
     public AudioSource audioSource;
 
+    public float minTimeBeforeBothering;
+    public float maxTimeBeforeBothering;
+
     private int id;
 
     private GameObject seat = null;
-    private bool seated = false;
+    private bool sat = false;
 
     // Bother action variables
-    private float timeBeforeBotheringYou = 10.0f;
+    private float timeBeforeBotheringYou = 30.0f;
     private bool isBotheringYou = false;
 
     // Use this for initialization
@@ -58,27 +61,30 @@ public class InitMate : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if (seat && transform.position == seat.transform.position && !seated)
+        // If mate is arrived at his seat
+        if (seat && transform.position == seat.transform.position && !sat)
         {
-            seated = true;
+            sat = true;
             transform.rotation = Quaternion.LookRotation(Vector3.forward);
         }
-        if (seat && !seated)
+        // If mate is not sat, move him to his seat
+        if (seat && !sat)
         {
             float step = MvtSpd * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, seat.transform.position, step);
         }
-        else if (seat && seated && transform.childCount == 0)
+        else if (seat && sat && transform.childCount == 0)
         {
-            int rnd = Random.Range(1,100);
-            if (rnd == 1 && !isBotheringYou)
+            int rnd = Random.Range(1, 300);
+            if (rnd == 1)
                 SayShit();
-            timeBeforeBotheringYou -= Time.deltaTime;
             if (timeBeforeBotheringYou <= 0 && !isBotheringYou)
             {
                 TriggerMateAction();
             }
         }
+        if (sat)
+            timeBeforeBotheringYou -= Time.deltaTime;
     }
 
     IEnumerator MoveAfterTime(float time)
@@ -189,5 +195,16 @@ public class InitMate : MonoBehaviour
         GameObject button = GameObject.Find("ActionSidebar/MateActionsButtons/MateButton" + id);
         button.SetActive(true);
         SayBotherSentence();
+    }
+
+    public void StopBothering()
+    {
+        isBotheringYou = false;
+        timeBeforeBotheringYou = Random.Range(minTimeBeforeBothering, maxTimeBeforeBothering);
+    }
+
+    public bool IsWorking()
+    {
+        return !isBotheringYou && sat;
     }
 }
