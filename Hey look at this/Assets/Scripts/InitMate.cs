@@ -114,7 +114,7 @@ public class InitMate : MonoBehaviour
     {
         var Shit = new string[]
         {
-            "Did you check 9gag ?",
+            "Have you checked 9gag ?",
             "How do you git pull ?",
             "What's your pants' color bro ?",
             "Oops forgot to push",
