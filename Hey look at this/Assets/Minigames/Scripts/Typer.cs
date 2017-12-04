@@ -22,8 +22,26 @@ public class Typer : MonoBehaviour {
 		"def",
 		"else",
 		"is",
-		"none",
-		"not"
+		"continue",
+		"not",
+		"class",
+		"and",
+		"as",
+		"assert",
+		"break",
+		"except",
+		"finally",
+		"from",
+		"global",
+		"import",
+		"lambda",
+		"or",
+		"pass",
+		"raise",
+		"return",
+		"try",
+		"with",
+		"yield"
 	};
 	// Use this for initialization
 	void Start () {
