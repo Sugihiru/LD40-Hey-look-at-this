@@ -18,21 +18,25 @@ public class Calculator : MonoBehaviour {
 	private int input;
 	private int nbrSuccess;
 	private int requiredSuccess;
+	private int difficulty;
+	private bool isMate {get;set;}
 
 	// Use this for initialization
 	void Start () {
 		gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Dude, help me, what's the answer ?";
-		requiredSuccess = 5;
+		requiredSuccess = 5 * (difficulty + 1);
 		nbrSuccess = 0;
 		mustRestart = true;
 		answer = gameObject.transform.GetChild(2).gameObject.GetComponent<InputField>();
 		operation = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 	}
 
-	public void Reset() {
+	public void Reset(int difficulty, bool isMate) {
 		Start();
 		over = false;
 		gameObject.SetActive(true);
+		this.difficulty = difficulty;
+		this.isMate = isMate;
 	}
 
 	// Update is called once per frame
