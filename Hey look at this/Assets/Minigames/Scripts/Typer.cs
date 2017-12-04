@@ -43,7 +43,6 @@ public class Typer : MonoBehaviour {
 		"with",
 		"yield"
 	};
-	private bool isMate {get;set;}
 	private int difficulty;
 	// Use this for initialization
 	void Start () {
@@ -53,12 +52,11 @@ public class Typer : MonoBehaviour {
 		mustRestart = true;
 	}
 
-	public void Reset(int difficulty, bool isMate) {
+	public void Reset(int difficulty) {
 		Start();
 		over = false;
 		gameObject.SetActive(true);
 		this.difficulty = difficulty;
-		this.isMate = isMate;
 	}
 	// Update is called once per frame
 	void Update () {

@@ -48,17 +48,17 @@ public class ActionButtonScript : MonoBehaviour
         if (actionType == ActionType.FAST)
         {
             cancelAllMinigames();
-            calcMinigame.Reset();
+            calcMinigame.Reset(0);
         }
         else if (actionType == ActionType.MATE_ACTION)
         {
             cancelAllMinigames();
-            calcMinigame.Reset();
+            calcMinigame.Reset(0);
         }
         else
         {
             cancelAllMinigames();
-            typerMinigame.Reset();
+            typerMinigame.Reset(0);
         }
         MinigameWin.SetActive(true);
     }

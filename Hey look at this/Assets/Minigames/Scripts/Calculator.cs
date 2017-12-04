@@ -19,7 +19,6 @@ public class Calculator : MonoBehaviour {
 	private int nbrSuccess;
 	private int requiredSuccess;
 	private int difficulty;
-	private bool isMate {get;set;}
 
 	// Use this for initialization
 	void Start () {
@@ -31,12 +30,11 @@ public class Calculator : MonoBehaviour {
 		operation = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
 	}
 
-	public void Reset(int difficulty, bool isMate) {
+	public void Reset(int difficulty) {
 		Start();
 		over = false;
 		gameObject.SetActive(true);
 		this.difficulty = difficulty;
-		this.isMate = isMate;
 	}
 
 	// Update is called once per frame
