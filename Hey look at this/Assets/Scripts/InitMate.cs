@@ -67,7 +67,7 @@ public class InitMate : MonoBehaviour
         }
         else if (seat && seated && transform.childCount == 0)
         {
-            int rnd = Random.Range(1,1337);
+            int rnd = Random.Range(1,100);
             if (rnd == 1 && !isBotheringYou)
                 SayShit();
             timeBeforeBotheringYou -= Time.deltaTime;
@@ -95,18 +95,18 @@ public class InitMate : MonoBehaviour
         transform.rotation = Quaternion.FromToRotation(seat.transform.position, transform.position);
     }
 
-    private Text CreateSpeechBubbleAndGetTxtComponent()
+    private Text CreateSpeechBubbleAndGetTxtComponent(Vector3 vector)
     {
-        Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-
-        GameObject bubbleGameObject = Instantiate(SpeechBubble, bubblePosition, transform.rotation);
+        GameObject bubbleGameObject = Instantiate(SpeechBubble, vector, transform.rotation);
         bubbleGameObject.transform.SetParent(transform);
         return (bubbleGameObject.transform.GetChild(1).gameObject.GetComponent<Text>());
     }
 
     private void SayShit()
     {
-        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent();
+        int rnd = Random.Range(-4, 5);
+        Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + rnd, transform.position.z);
+        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent(bubblePosition);
         SetShitText(textGameObject);
     }
 
@@ -122,7 +122,7 @@ public class InitMate : MonoBehaviour
             "What to do when unity crash ?",
             "Do you know RNGesus ?",
             "I'm a pirate, be my princess",
-            "Goku died last DBS' episode",
+            "Yamcha died last DBS' episode",
             "Wanna play my LudumDare ?",
             "Antis are all homophobes!",
             "Let's watch LOL Championships!",
@@ -140,7 +140,8 @@ public class InitMate : MonoBehaviour
 
     private void SayHello()
     {
-        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent();
+        Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent(bubblePosition);
         SetHelloTextOnId(textGameObject);
     }
 
@@ -159,7 +160,8 @@ public class InitMate : MonoBehaviour
 
     private void SayBotherSentence()
     {
-        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent();
+        Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        Text textGameObject = CreateSpeechBubbleAndGetTxtComponent(bubblePosition);
         SetBotherText(textGameObject);
     }
 
