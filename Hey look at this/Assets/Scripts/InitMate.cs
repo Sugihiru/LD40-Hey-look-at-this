@@ -75,7 +75,7 @@ public class InitMate : MonoBehaviour
         }
         else if (seat && sat && transform.childCount == 0)
         {
-            int rnd = Random.Range(1, 300);
+            int rnd = Random.Range(1, 400);
             if (rnd == 1)
                 SayShit();
             if (timeBeforeBotheringYou <= 0 && !isBotheringYou)
@@ -182,7 +182,11 @@ public class InitMate : MonoBehaviour
         {
             "Can you help me ? I have merge issues!",
             "Hey dude, can you show me how to fix this problem ?",
-            "I pull'ed ur code and it doesn't work ! Help me!"
+            "I pull'ed ur code and it doesn't work ! Help me!",
+            "Can't solve this!",
+            "I just broke your code bro...",
+            "It's a bug i'm sure",
+            "Can't concentrate, do it for me"
         };
 
         int rnd = Random.Range(0, BotherSentences.Length);
