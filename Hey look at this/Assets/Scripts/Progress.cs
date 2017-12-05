@@ -44,6 +44,11 @@ public class Progress : MonoBehaviour
     {
         Debug.Log(pts);
         Value += pts;
+        if (Value >= MaxValue)
+        {
+            GameOverManager.GameOverText = "Congratulations ! You won !\nTime left: " + GameObject.Find("Canvas/DeadlineBar/Foreground").GetComponent<IncreaseTimer>().GetTimeLeft();
+            GameOverManager.LoadGameOverScene();
+        }
         UpdateTxt();
     }
 
@@ -56,5 +61,10 @@ public class Progress : MonoBehaviour
                 ++nbActiveMate;
         }
         return nbActiveMate;
+    }
+
+    public float getPercentage()
+    {
+        return Value / MaxValue * 100;
     }
 }

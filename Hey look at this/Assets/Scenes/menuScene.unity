@@ -194,7 +194,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 69324240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 453.5, y: 190.5, z: 0}
+  m_LocalPosition: {x: 440, y: 183.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 234948824}
@@ -333,12 +333,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You are a salaryman working for a video game little enterprise.
+  m_Text: 'You are a salaryman working for a small video game company.
 
     You need to finish a project before the deadline. Since you''re alone in this
-    project, your boss is trying to hire some part-time trainee to help you, but they''ll
-    frequently ask for your help. You must help them when they have problems, so you
-    can work together to finish the project at time.'
+    project, your boss is trying to hire some part-time trainees to help you, but
+    they''ll frequently ask for your help. You must help them when they have problems,
+    so you can work together to finish the project in time.'
 --- !u!222 &229493392
 CanvasRenderer:
   m_ObjectHideFlags: 0

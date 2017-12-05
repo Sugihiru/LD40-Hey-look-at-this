@@ -36,7 +36,7 @@ public class IncreaseTimer : MonoBehaviour
         }
         else
         {
-            GameOverManager.GameOverText = "You lost :(\nYou didn't manage to finish your project at time";
+            GameOverManager.GameOverText = "You lost :(\nYou didn't manage to finish your project in time...\nProject completion percentage: " + GameObject.Find("Canvas/ProgressBar/Foreground").GetComponent<Progress>().getPercentage() + "%";
             GameOverManager.LoadGameOverScene();
         }
     }
@@ -45,5 +45,10 @@ public class IncreaseTimer : MonoBehaviour
     {
         if (timeSpan.Seconds >= 0)
             TimerTxt.text = string.Format(@"{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+    }
+
+    public string GetTimeLeft()
+    {
+        return string.Format(@"{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
     }
 }

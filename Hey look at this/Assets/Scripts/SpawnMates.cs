@@ -3,14 +3,17 @@
 public class SpawnMates : MonoBehaviour
 {
     public GameObject MatePrefab;
+    private Progress progress;
     public int StartSpawnTime;
-    public int SpawnRateTime;
     public int MaxNbMates;
 
-	// Use this for initialization
-	void Start()
+    private int CheckRateTime = 15;
+
+    // Use this for initialization
+    void Start()
     {
-        InvokeRepeating("SpawnMate", StartSpawnTime, SpawnRateTime);
+        progress = GameObject.Find("Canvas/ProgressBar/Foreground").GetComponent<Progress>();
+        InvokeRepeating("SpawnMate", StartSpawnTime, CheckRateTime);
     }
 
     void SpawnMate()
@@ -21,7 +24,11 @@ public class SpawnMates : MonoBehaviour
             CancelInvoke("SpawnMate");
             return;
         }
-        GameObject mate = Instantiate(MatePrefab, transform.position, transform.rotation);
-        mate.name = "Mate" + (nbMates + 1).ToString();
+        Debug.Log(progress.getPercentage());
+        if (progress.getPercentage() >= (75 / MaxNbMates) * nbMates)
+        {
+            GameObject mate = Instantiate(MatePrefab, transform.position, transform.rotation);
+            mate.name = "Mate" + (nbMates + 1).ToString();
+        }
     }
 }
