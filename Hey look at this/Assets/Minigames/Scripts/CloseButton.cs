@@ -7,13 +7,11 @@ public class CloseButton : MonoBehaviour {
 	// Use this for initialization
 	public GameObject Parent;
 	void OnMouseDown() {
-		Debug.Log("Lol");
 		Destroy(Parent);
 		Destroy(gameObject);
 	}
 
 	void Start () {
-		Debug.Log("Gnap");
 	}
 
 	// Update is called once per frame
@@ -22,7 +20,6 @@ public class CloseButton : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
-				Debug.Log("Hey");
 				Destroy(hit.transform.gameObject);
 			}
 		}

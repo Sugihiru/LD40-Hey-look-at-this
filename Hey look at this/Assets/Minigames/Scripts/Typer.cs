@@ -13,6 +13,7 @@ public class Typer : MonoBehaviour
     private List<string> to_type = new List<string>();
     private int word_offset;
     private string result;
+    public AudioClip Oh;
     private string[] words = {
         "for",
         "each",
@@ -129,6 +130,12 @@ public class Typer : MonoBehaviour
         if (over)
         {
             progress.AddPts(nbPts * (difficulty + 1));
+        }
+        else
+        {
+            GameObject button = GameObject.Find("MinigamesCanvas");
+            AudioSource audioSource = button.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(Oh);
         }
     }
 }

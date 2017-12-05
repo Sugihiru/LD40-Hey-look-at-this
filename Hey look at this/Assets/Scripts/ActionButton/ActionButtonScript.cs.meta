@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 79efb586b59959942bde216b4b9811b9
-timeCreated: 1512320143
+timeCreated: 1512437546
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MinigameWin: {instanceID: 0}
+  - Oh: {fileID: 8300000, guid: 7b135c4f4683da44b938e104b8ce5aad, type: 3}
+  - audioSource: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

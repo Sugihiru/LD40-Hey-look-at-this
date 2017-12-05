@@ -9,6 +9,7 @@ public class ActionButtonScript : MonoBehaviour
     private Calculator calcMinigame;
     private Typer typerMinigame;
 
+
     public enum ActionType
     {
         FAST,
@@ -26,7 +27,9 @@ public class ActionButtonScript : MonoBehaviour
     public void OnCancelActionButtonClick()
     {
         if (!calcMinigame.isActiveAndEnabled)
+        {
             typerMinigame.gameObject.SetActive(false);
+        }
     }
 
     public void OnFastActionButtonClick()
