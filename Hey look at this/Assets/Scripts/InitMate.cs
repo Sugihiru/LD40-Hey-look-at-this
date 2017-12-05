@@ -169,7 +169,7 @@ public class InitMate : MonoBehaviour
 
     private void SayBotherSentence()
     {
-    	audioSource.PlayOneShot(Hey, 0.7F);
+    	audioSource.PlayOneShot(Hey, 0.9F);
         Vector3 bubblePosition = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         Text textGameObject = CreateSpeechBubbleAndGetTxtComponent(bubblePosition);
         SetBotherText(textGameObject);
